@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.io.IOException;
 
 /**
@@ -41,9 +42,26 @@ public class TodoService {
     @POST
     @Produces(MediaType.TEXT_HTML)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void newTodo(@FormParam("id") String id, @Context HttpServletResponse servletResponse) throws IOException {
+    public Response newTodo(@FormParam("id") String id, @Context HttpServletResponse servletResponse) throws IOException {
+        return Response.ok("HTTP post request with " + id).build();
+    }
 
-        servletResponse.sendRedirect("../create_todo.html");
+    @GET
+    @Path("{id : \\d+}") //support digit only
+    public Response getUserById(@PathParam("id") String id) {
+
+        return Response.status(200).entity("getUserById is called, id : " + id).build();
+
+
+    }
+
+    @GET
+    @Path("/books/{isbn : \\d+}")
+    public Response getUserBookByISBN(@PathParam("isbn") String isbn) {
+
+        return Response.status(200)
+                .entity("getUserBookByISBN is called, isbn : " + isbn).build();
+
     }
 
 

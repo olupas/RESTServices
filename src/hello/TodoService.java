@@ -2,11 +2,11 @@ package hello;
 
 import model.Todo;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -30,12 +30,21 @@ public class TodoService {
 
     // This can be used to test the integration with the browser
     @GET
-    @Produces({MediaType.TEXT_XML})
+    @Produces({MediaType.APPLICATION_JSON})
     public Todo getHTML() {
         Todo todo = new Todo();
         todo.setSummary("This is my first todo");
         todo.setDescription("This is my first todo");
         return todo;
     }
+
+    @POST
+    @Produces(MediaType.TEXT_HTML)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public void newTodo(@FormParam("id") String id, @Context HttpServletResponse servletResponse) throws IOException {
+
+        servletResponse.sendRedirect("../create_todo.html");
+    }
+
 
 }

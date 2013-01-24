@@ -1,4 +1,12 @@
-package hello;
+package hello.service.ws;
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: olupas
+ * Date: 1/24/13
+ * Time: 4:45 PM
+ * To change this template use File | Settings | File Templates.
+ */
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

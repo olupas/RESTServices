@@ -1,4 +1,4 @@
-package hello;
+package hello.service.ws;
 
 /**
  * Created with IntelliJ IDEA.

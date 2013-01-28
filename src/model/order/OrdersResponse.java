@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement
-public class GetOrdersResponse {
+public class OrdersResponse {
     private Customer customer;
     private List<Order> orders = new ArrayList<Order>();
 

@@ -20,10 +20,10 @@ import java.util.Date;
 public class OrderService {
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public GetOrdersResponse getOrders() {
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    public OrdersResponse getOrders() {
 
-        GetOrdersResponse response = new GetOrdersResponse();
+        OrdersResponse response = new OrdersResponse();
         Customer customer = new Customer();
         LineItem lineItem1;
         LineItem lineItem2;

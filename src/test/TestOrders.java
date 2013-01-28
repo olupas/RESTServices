@@ -27,7 +27,7 @@ public class TestOrders {
         Client client = Client.create(config);
         WebResource service = client.resource(getBaseURI());
         // Get JSON
-        System.out.println("ORDERS" + service.path("rest/api/").path("orders").accept(MediaType.APPLICATION_JSON).get(String.class));
+        System.out.println("ORDERS" + service.path("rest/api/").path("orders").accept(MediaType.APPLICATION_XML).get(String.class));
         // PUT
         System.out.println("ORDER STATUS:" + service.path("rest/api/").path("orders").path("12345").accept(MediaType.TEXT_PLAIN).put(String.class));
         // Get JSON for application

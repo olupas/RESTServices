@@ -98,15 +98,15 @@ public class OrderService {
     }
 
 
-    @PUT
+    @POST
     @Path("{orderNumber}.xml")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateOrder(@PathParam("orderNumber") String orderNumber, OrderRequest request) throws OrderNotFoundException {
 
         ResponseBuilder response;
 
-        if ("12345".equals(orderNumber)) {
-            response = Response.status(Response.Status.ACCEPTED).entity( "Saved changes to order '" +    request.getOrder().getOrderNumber() + "'.");
+        if ("1235".equals(orderNumber)) {
+            response = Response.status(Response.Status.ACCEPTED).entity("Saved changes to order '" + request.getOrder().getOrderNumber() + "'.");
         } else {
             throw new OrderNotFoundException("Order number '" + orderNumber +
                     "' does not exist.");

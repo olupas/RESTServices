@@ -39,7 +39,7 @@ public class TestOrders {
         OrderRequest request = new OrderRequest();
         request.setOrder(o);
 
-        System.out.println("UPDATE ORDER:" + service.path("rest/api/").path("orders").path("12345.xml").entity(request).accept(MediaType.TEXT_PLAIN).put(String.class));
+        System.out.println("UPDATE ORDER:" + service.path("rest/api/").path("orders").path("12345.xml").entity(request).accept(MediaType.TEXT_PLAIN).post(String.class));
     }
 
     private static URI getBaseURI() {
